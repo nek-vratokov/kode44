@@ -1,0 +1,2142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KODE44 — Manual de Marca</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #000000;
+    --white: #FFFFFF;
+    --purple: #371434;
+    --purple-light: #5a2257;
+    --purple-dark: #1f0b1e;
+    --purple-muted: #2a1029;
+    --gray-100: #f5f5f5;
+    --gray-200: #e0e0e0;
+    --gray-400: #9a9a9a;
+    --gray-600: #555555;
+    --gray-800: #1a1a1a;
+    --grid: 8px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    overflow-x: hidden;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+
+  /* ─── SECTIONS ─── */
+  section {
+    min-height: 100vh;
+    padding: 120px 80px 80px;
+  }
+  section:nth-child(even) { background: var(--gray-100); }
+  section:nth-child(odd) { background: var(--white); }
+
+  .cover-section {
+    background: var(--black) !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 80px;
+  }
+
+  /* ─── COVER ─── */
+  .cover-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 80% 50%, #371434 0%, transparent 60%),
+                radial-gradient(ellipse 40% 60% at 10% 80%, #1f0b1e 0%, transparent 50%);
+  }
+  .cover-noise {
+    position: absolute; inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+  .cover-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  .cover-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+  }
+  .cover-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 40px;
+    font-weight: 500;
+  }
+  .cover-logo-display {
+    margin-bottom: 32px;
+  }
+  .k44-wordmark {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .k44-icon {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+  }
+  .k44-name {
+    font-size: clamp(56px, 8vw, 96px);
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .cover-tagline {
+    font-size: clamp(14px, 1.5vw, 18px);
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 80px;
+    padding-left: 4px;
+  }
+  .cover-meta {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 48px;
+  }
+  .cover-meta-item { }
+  .cover-meta-label {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  .cover-meta-value {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+  }
+  .cover-version {
+    position: absolute;
+    bottom: 48px;
+    right: 80px;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    z-index: 2;
+  }
+
+  /* ─── SECTION HEADERS ─── */
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--purple);
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--purple);
+    flex-shrink: 0;
+  }
+  .section-number {
+    font-size: 80px;
+    font-weight: 700;
+    color: rgba(0,0,0,0.05);
+    line-height: 1;
+    margin-bottom: -24px;
+    letter-spacing: -0.05em;
+  }
+  .dark-section .section-number { color: rgba(255,255,255,0.04); }
+  .section-title {
+    font-size: clamp(36px, 4vw, 64px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 64px;
+  }
+  .section-divider {
+    width: 48px;
+    height: 2px;
+    background: var(--black);
+    margin: 24px 0 48px;
+  }
+
+  /* ─── DARK SECTION ─── */
+  .dark-section {
+    background: var(--black) !important;
+    color: var(--white);
+  }
+  .dark-section .section-label { color: #7b4c78; }
+  .dark-section .section-label::before { background: #7b4c78; }
+  .dark-section .section-title { color: var(--white); }
+  .dark-section .section-divider { background: var(--white); }
+  .dark-section p, .dark-section li { color: rgba(255,255,255,0.65); }
+
+  /* ─── PURPLE SECTION ─── */
+  .purple-section {
+    background: var(--purple) !important;
+    color: var(--white);
+  }
+  .purple-section .section-label { color: rgba(255,255,255,0.4); }
+  .purple-section .section-label::before { background: rgba(255,255,255,0.4); }
+  .purple-section .section-title { color: var(--white); }
+  .purple-section .section-divider { background: var(--white); }
+  .purple-section p, .purple-section li { color: rgba(255,255,255,0.75); }
+  .purple-section .section-number { color: rgba(255,255,255,0.05); }
+
+  /* ─── INTRO SECTION ─── */
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .intro-lead {
+    font-size: clamp(20px, 2.2vw, 28px);
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    margin-bottom: 32px;
+  }
+  .intro-body {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--gray-600);
+    margin-bottom: 24px;
+  }
+  .mvv-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .mvv-card {
+    border-left: 2px solid var(--black);
+    padding-left: 24px;
+  }
+  .mvv-label {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--gray-400);
+    margin-bottom: 8px;
+  }
+  .mvv-text {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--gray-600);
+  }
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    margin-top: 64px;
+    background: var(--gray-200);
+    border: 1px solid var(--gray-200);
+  }
+  .value-item {
+    background: var(--white);
+    padding: 28px 24px;
+  }
+  .value-icon {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  .value-name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .value-desc {
+    font-size: 12px;
+    color: var(--gray-400);
+    line-height: 1.5;
+  }
+
+  /* ─── LOGO SECTION ─── */
+  .logo-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 80px;
+    background: var(--gray-200);
+  }
+  .logo-box {
+    padding: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+  }
+  .logo-box.on-white { background: var(--white); }
+  .logo-box.on-black { background: var(--black); }
+  .logo-box.on-purple { background: var(--purple); }
+  .logo-box.on-gray { background: var(--gray-100); }
+
+  .logo-inline {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .logo-inline-text {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .on-white .logo-inline-text { color: var(--black); }
+  .on-black .logo-inline-text { color: var(--white); }
+  .on-purple .logo-inline-text { color: var(--white); }
+  .on-gray .logo-inline-text { color: var(--black); }
+
+  .logo-caption {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    padding: 12px;
+    background: var(--white);
+  }
+
+  /* safety zone */
+  .safety-zone-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 64px 0;
+  }
+  .safety-zone-container {
+    position: relative;
+    display: inline-block;
+    border: 2px dashed var(--purple);
+    padding: 48px;
+  }
+  .safety-zone-inner {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    padding: 40px 56px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .safety-logo-text {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--black);
+  }
+  .safety-label {
+    position: absolute;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--purple);
+    font-weight: 600;
+    background: var(--white);
+    padding: 2px 6px;
+  }
+  .safety-label.top { top: -10px; left: 50%; transform: translateX(-50%); }
+  .safety-label.bottom { bottom: -10px; left: 50%; transform: translateX(-50%); }
+  .safety-label.left { left: -22px; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+  .safety-label.right { right: -22px; top: 50%; transform: translateY(-50%) rotate(90deg); }
+  .safety-arrows {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  /* usage examples */
+  .usage-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--gray-200);
+    margin: 48px 0;
+  }
+  .usage-item {
+    background: var(--white);
+    padding: 32px 28px;
+  }
+  .usage-item.bad { background: #fff8f8; }
+  .usage-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+  .badge-correct { background: #e8f5e9; color: #2e7d32; }
+  .badge-wrong { background: #fce4e4; color: #c62828; }
+  .usage-logo-demo {
+    margin-bottom: 16px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+  }
+  .usage-desc {
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.5;
+  }
+  .logo-distorted {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--black);
+    transform: scaleX(1.6);
+    display: inline-block;
+    transform-origin: left;
+  }
+  .logo-on-busy {
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.3);
+    background: linear-gradient(45deg, #ff6b6b, #feca57, #54a0ff);
+    padding: 12px 16px;
+    letter-spacing: 0.05em;
+  }
+  .logo-no-space {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--black);
+    border: 2px solid var(--black);
+    padding: 4px 6px;
+    letter-spacing: 0;
+  }
+
+  /* sizes table */
+  .sizes-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+  }
+  .sizes-table th {
+    background: var(--black);
+    color: var(--white);
+    text-align: left;
+    padding: 14px 20px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .sizes-table td {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--gray-200);
+    font-size: 13px;
+    color: var(--gray-600);
+  }
+  .sizes-table tr:nth-child(even) td { background: var(--gray-100); }
+  .size-visual {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--black);
+  }
+
+  /* ─── COLOR SECTION ─── */
+  .color-strip {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 1fr 1fr 1fr;
+    height: 200px;
+    margin-bottom: 64px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .color-swatch {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 16px;
+  }
+  .swatch-name {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .swatch-hex {
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.7;
+    letter-spacing: 0.08em;
+  }
+  .color-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--gray-200);
+    margin-bottom: 64px;
+  }
+  .color-detail-card {
+    background: var(--white);
+    overflow: hidden;
+  }
+  .color-block {
+    height: 160px;
+    position: relative;
+  }
+  .color-block-inner {
+    width: 100%;
+    height: 100%;
+  }
+  .color-info {
+    padding: 24px;
+  }
+  .color-name {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .color-role {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .color-desc {
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .color-values {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .color-value-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    background: var(--gray-100);
+    border-radius: 2px;
+  }
+  .color-value-label {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    font-weight: 600;
+  }
+  .color-value-code {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--black);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.05em;
+  }
+
+  /* secondary colors */
+  .secondary-colors {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2px;
+    background: var(--gray-200);
+  }
+  .sec-swatch {
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 8px;
+  }
+  .sec-swatch .swatch-name { font-size: 8px; }
+  .sec-swatch .swatch-hex { font-size: 9px; }
+
+  /* ─── TYPOGRAPHY ─── */
+  .type-specimen-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--gray-200);
+    margin-bottom: 64px;
+  }
+  .type-card {
+    background: var(--white);
+    padding: 48px 40px;
+  }
+  .type-label {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    font-weight: 600;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--gray-200);
+    padding-bottom: 16px;
+  }
+  .type-display {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--black);
+    margin-bottom: 16px;
+  }
+  .type-display.secondary-font {
+    font-size: 52px;
+    font-weight: 700;
+  }
+  .type-alphabet {
+    font-size: 14px;
+    color: var(--gray-400);
+    line-height: 2;
+    letter-spacing: 0.05em;
+    word-spacing: 6px;
+    margin-bottom: 20px;
+  }
+  .type-meta {
+    display: flex;
+    gap: 24px;
+  }
+  .type-meta-item {
+    font-size: 10px;
+    color: var(--gray-400);
+    letter-spacing: 0.1em;
+  }
+  .type-meta-item span { color: var(--black); font-weight: 600; }
+
+  .hierarchy-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .hierarchy-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 200px;
+    border-bottom: 1px solid var(--gray-200);
+    align-items: center;
+    padding: 20px 0;
+  }
+  .hierarchy-row:first-child { border-top: 1px solid var(--gray-200); }
+  .h-level {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    font-weight: 600;
+  }
+  .h-sample { }
+  .h-title-sample { font-size: 42px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
+  .h-subtitle-sample { font-size: 22px; font-weight: 500; line-height: 1.2; }
+  .h-body-sample { font-size: 15px; font-weight: 400; line-height: 1.65; color: var(--gray-600); }
+  .h-caption-sample { font-size: 11px; font-weight: 300; color: var(--gray-400); }
+  .h-spec {
+    font-size: 10px;
+    color: var(--gray-400);
+    line-height: 1.7;
+  }
+  .h-spec strong { color: var(--black); font-weight: 600; font-size: 11px; }
+
+  /* ─── GRAPHIC SYSTEM ─── */
+  .gs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--gray-200);
+    margin-bottom: 64px;
+  }
+  .gs-card {
+    background: var(--white);
+    padding: 40px 32px;
+  }
+  .gs-card.dark { background: var(--black); }
+  .gs-card.purple { background: var(--purple); }
+  .gs-title {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .gs-card.dark .gs-title { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.1); }
+  .gs-card.purple .gs-title { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.1); }
+
+  /* geometric patterns */
+  .geo-demo {
+    height: 120px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .geo-lines {
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 8px,
+      rgba(0,0,0,0.06) 8px,
+      rgba(0,0,0,0.06) 9px
+    );
+    width: 100%; height: 100%;
+  }
+  .geo-grid-pattern {
+    background-image:
+      linear-gradient(rgba(0,0,0,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+    width: 100%; height: 100%;
+  }
+  .geo-dots {
+    background-image: radial-gradient(circle, rgba(55,20,52,0.4) 1px, transparent 1px);
+    background-size: 16px 16px;
+    width: 100%; height: 100%;
+  }
+  .texture-noise {
+    background: #1a1a1a;
+    width: 100%; height: 100%;
+    position: relative;
+  }
+  .texture-grain {
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+    mix-blend-mode: overlay;
+  }
+  .gradient-demo {
+    background: linear-gradient(135deg, #000000 0%, #371434 50%, #000000 100%);
+    width: 100%; height: 100%;
+  }
+  .photo-style-demo {
+    width: 100%; height: 100%;
+    background: linear-gradient(180deg, #1a1a1a 0%, #2a1029 40%, #0d0d0d 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .photo-style-text {
+    color: rgba(255,255,255,0.15);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* ─── APPLICATIONS ─── */
+  .apps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--gray-200);
+    margin-bottom: 80px;
+  }
+  .app-card {
+    background: var(--white);
+    overflow: hidden;
+  }
+  .app-visual {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+  }
+  .app-info {
+    padding: 24px;
+  }
+  .app-name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .app-desc {
+    font-size: 12px;
+    color: var(--gray-400);
+    line-height: 1.5;
+  }
+
+  /* social mockup */
+  .social-mockup {
+    background: var(--black);
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 8px;
+  }
+  .social-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .social-avatar {
+    width: 24px; height: 24px;
+    background: var(--purple);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7px;
+    font-weight: 700;
+    color: white;
+  }
+  .social-handle {
+    font-size: 9px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .social-post {
+    flex: 1;
+    background: var(--purple-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .social-post-text {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .social-caption {
+    font-size: 8px;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* garment mockup */
+  .garment-mockup {
+    background: #111;
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .hoodie-outline {
+    width: 100px;
+    height: 90px;
+    position: relative;
+  }
+  .hoodie-logo {
+    position: absolute;
+    top: 30px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+
+  /* packaging mockup */
+  .packaging-mockup {
+    background: var(--black);
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px;
+  }
+  .box-3d {
+    width: 70px; height: 70px;
+    background: var(--gray-800);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    position: relative;
+  }
+  .box-lid {
+    position: absolute;
+    top: -10px; left: -1px; right: -1px;
+    height: 14px;
+    background: var(--purple);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .box-text {
+    font-size: 7px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.15em;
+  }
+
+  /* web mockup */
+  .web-mockup {
+    background: var(--black);
+    width: 100%; height: 100%;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .web-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 8px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .web-nav-logo { font-size: 9px; font-weight: 700; color: var(--white); letter-spacing: 0.1em; }
+  .web-nav-items { display: flex; gap: 12px; }
+  .web-nav-item { font-size: 7px; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; }
+  .web-hero {
+    flex: 1;
+    background: linear-gradient(135deg, var(--purple-dark), var(--black));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+  .web-hero-text { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.7); letter-spacing: 0.1em; }
+
+  /* promo mockup */
+  .promo-mockup {
+    background: var(--black);
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 24px;
+  }
+  .promo-tag {
+    font-size: 7px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--purple-light);
+    font-weight: 600;
+  }
+  .promo-headline {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    text-align: center;
+    line-height: 1.2;
+  }
+  .promo-cta {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 6px 16px;
+  }
+
+  /* corp mockup */
+  .corp-mockup {
+    background: var(--white);
+    width: 100%; height: 100%;
+    padding: 20px;
+    border: 1px solid var(--gray-200);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .corp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .corp-logo-text { font-size: 12px; font-weight: 700; color: var(--black); letter-spacing: 0.1em; }
+  .corp-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+  }
+  .corp-line {
+    height: 6px;
+    background: var(--gray-200);
+    border-radius: 1px;
+  }
+  .corp-line:nth-child(1) { width: 80%; }
+  .corp-line:nth-child(2) { width: 65%; }
+  .corp-line:nth-child(3) { width: 90%; }
+  .corp-line:nth-child(4) { width: 55%; }
+  .corp-line:nth-child(5) { width: 75%; }
+  .corp-footer {
+    padding-top: 8px;
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .corp-footer-text { font-size: 7px; color: var(--gray-400); letter-spacing: 0.1em; }
+  .corp-footer-dot {
+    width: 6px; height: 6px;
+    background: var(--purple);
+    border-radius: 50%;
+  }
+
+  /* ─── COMMUNICATION ─── */
+  .copy-examples {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--gray-200);
+    margin: 48px 0;
+  }
+  .copy-card {
+    background: var(--black);
+    padding: 40px;
+    position: relative;
+  }
+  .copy-context {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .copy-text {
+    font-size: clamp(18px, 2vw, 26px);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .copy-accent {
+    position: absolute;
+    bottom: 24px; right: 28px;
+    font-size: 48px;
+    color: rgba(55,20,52,0.6);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+
+  .slogan-display {
+    background: var(--black);
+    padding: 80px;
+    text-align: center;
+    margin: 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .slogan-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 50% 50%, #371434 0%, transparent 70%);
+  }
+  .slogan-text {
+    position: relative;
+    font-size: clamp(28px, 4vw, 56px);
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    text-transform: lowercase;
+  }
+  .slogan-em { color: rgba(255,255,255,0.35); }
+  .slogan-sub {
+    position: relative;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    margin-top: 16px;
+    font-weight: 500;
+  }
+
+  .phrases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--gray-200);
+  }
+  .phrase-card {
+    background: var(--white);
+    padding: 28px 24px;
+    position: relative;
+  }
+  .phrase-num {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--gray-200);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.05em;
+  }
+  .phrase-text {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--black);
+    line-height: 1.3;
+  }
+
+  /* ─── RULES ─── */
+  .dont-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: var(--gray-200);
+    margin: 48px 0;
+  }
+  .dont-item {
+    background: var(--white);
+    padding: 24px 20px;
+    position: relative;
+  }
+  .dont-icon {
+    width: 32px; height: 32px;
+    background: #fce4e4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .dont-text {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--gray-600);
+  }
+  .dont-text strong {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #c62828;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .do-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: var(--gray-200);
+  }
+  .do-item {
+    background: var(--white);
+    padding: 24px 20px;
+  }
+  .do-icon {
+    width: 32px; height: 32px;
+    background: #e8f5e9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .do-text {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--gray-600);
+  }
+  .do-text strong {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #2e7d32;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  /* ─── CLOSING ─── */
+  .closing-section {
+    background: var(--black) !important;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .closing-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 80% at 50% 50%, #371434 0%, transparent 65%);
+  }
+  .closing-content { position: relative; z-index: 2; }
+  .closing-logo {
+    font-size: 64px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+  .closing-tagline {
+    font-size: 12px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    font-weight: 500;
+  }
+  .closing-line {
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.15), transparent);
+    margin: 32px auto;
+  }
+
+  /* ─── SVG LOGO ─── */
+  .k44-svg { width: 100%; height: 100%; }
+
+  /* ─── UTILITIES ─── */
+  p { font-size: 15px; line-height: 1.7; color: var(--gray-600); margin-bottom: 20px; }
+  p:last-child { margin-bottom: 0; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+  .mb-8 { margin-bottom: 8px; }
+  .mb-16 { margin-bottom: 16px; }
+  .mb-24 { margin-bottom: 24px; }
+  .mb-32 { margin-bottom: 32px; }
+  .mb-48 { margin-bottom: 48px; }
+  .mb-64 { margin-bottom: 64px; }
+  .mt-48 { margin-top: 48px; }
+  .mt-64 { margin-top: 64px; }
+
+  @media print {
+    nav { display: none; }
+    section { padding: 60px 40px; }
+    .cover-section { page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">KODE44</div>
+  <ul class="nav-links">
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#identidad">Identidad</a></li>
+    <li><a href="#colores">Colores</a></li>
+    <li><a href="#tipografia">Tipografía</a></li>
+    <li><a href="#sistema">Sistema</a></li>
+    <li><a href="#aplicaciones">Aplicaciones</a></li>
+    <li><a href="#comunicacion">Comunicación</a></li>
+    <li><a href="#reglas">Reglas</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ COVER ═══ -->
+<section class="cover-section">
+  <div class="cover-bg"></div>
+  <div class="cover-noise"></div>
+  <div class="cover-grid"></div>
+  <div class="cover-content">
+    <div class="cover-eyebrow">Manual de Marca / Brand Guidelines</div>
+    <div class="cover-logo-display">
+      <div class="k44-wordmark">
+        <div class="k44-name">KODE44</div>
+      </div>
+    </div>
+    <div class="cover-tagline">being yourself is the kode</div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Sector</div>
+        <div class="cover-meta-value">Streetwear / Moda Urbana</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Edición</div>
+        <div class="cover-meta-value">01 — Brand Identity</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Año</div>
+        <div class="cover-meta-value">2025 — 2026</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-version">Version 1.0 — Confidential</div>
+</section>
+
+<!-- ═══ 01 INTRO ═══ -->
+<section id="intro">
+  <div class="section-label">01</div>
+  <div class="section-number">01</div>
+  <div class="section-title">Introducción<br>a la Marca</div>
+
+  <div class="intro-grid">
+    <div>
+      <p class="intro-lead">KODE44 surge de la búsqueda de algo representativo más allá de la ropa.</p>
+      <p>El objetivo no es solo diseñar prendas, sino construir un símbolo que transmita autenticidad y que, al mismo tiempo, pueda ser reinterpretado por quien lo usa.</p>
+      <p>KODE44 posee una personalidad contemporánea, auténtica y conceptual. La marca combina diseño, cultura urbana y visión futurista para transmitir una identidad segura, creativa y minimalista. Su comunicación mantiene un tono directo y visual, priorizando la estética, la exclusividad y el significado detrás de cada pieza.</p>
+    </div>
+    <div class="mvv-stack">
+      <div class="mvv-card">
+        <div class="mvv-label">Misión</div>
+        <p class="mvv-text">Elevar la identidad urbana a través del diseño, la innovación y la expresión auténtica, creando una conexión entre el streetwear, la cultura y quienes buscan definir su propia identidad.</p>
+      </div>
+      <div class="mvv-card">
+        <div class="mvv-label">Visión</div>
+        <p class="mvv-text">Ser un referente en la cultura urbana mediante una identidad visual que conecte diseño, innovación y visión contemporánea.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="values-grid mt-64">
+    <div class="value-item">
+      <div class="value-icon">◈</div>
+      <div class="value-name">Autenticidad</div>
+      <div class="value-desc">Cada pieza y cada comunicación refleja lo que KODE44 realmente es, sin filtros.</div>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">◇</div>
+      <div class="value-name">Creatividad</div>
+      <div class="value-desc">El diseño como lenguaje y herramienta de expresión individual y colectiva.</div>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">▲</div>
+      <div class="value-name">Exclusividad</div>
+      <div class="value-desc">Piezas pensadas para quienes entienden que vestir es una declaración.</div>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">○</div>
+      <div class="value-name">Comunidad</div>
+      <div class="value-desc">Una red de personas que comparten valores de identidad, diseño y originalidad.</div>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">◉</div>
+      <div class="value-name">Resiliencia</div>
+      <div class="value-desc">Construir desde la convicción, sin importar las tendencias del momento.</div>
+    </div>
+    <div class="value-item" style="background: var(--black); display: flex; align-items: center; justify-content: center;">
+      <div style="font-size: 28px; font-weight: 700; color: rgba(255,255,255,0.15); letter-spacing: 0.1em; text-align: center;">KODE<br><span style="color: rgba(55,20,52,0.8);">44</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 02 IDENTIDAD VISUAL ═══ -->
+<section id="identidad" class="dark-section">
+  <div class="section-label">02</div>
+  <div class="section-number">02</div>
+  <div class="section-title">Identidad<br>Visual</div>
+
+  <p style="max-width: 640px; margin-bottom: 64px;">El logotipo principal de KODE44 presenta un diseño moderno, agresivo y altamente reconocible compuesto por dos figuras simétricas angulares que reinterpretan el número 44 de forma abstracta, acompañado del nombre de la marca.</p>
+
+  <!-- Logo showcase -->
+  <div class="logo-showcase">
+      <img
+    src="https://i.imgur.com/0RCgTrq.png"
+    alt="KODE44"
+    style="max-width: 1200px; height: 400px;">
+    </div>
+  </div>
+
+  <!-- Safety Zone -->
+  <div style="margin-bottom: 24px;">
+    <div class="section-label" style="color: #7b4c78;">Zona de Seguridad</div>
+    <h3 style="font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 16px;">Espacio de Protección del Logotipo</h3>
+    <p style="max-width: 600px;">La zona de seguridad garantiza que el logotipo siempre tenga suficiente espacio visual para mantener su legibilidad e impacto. La unidad de medida de referencia es la altura de la "K" del wordmark (denominada <strong style="color: white;">1x</strong>). El margen mínimo requerido en todos los lados es <strong style="color: white;">1x</strong>.</p>
+  </div>
+
+  <div class="safety-zone-wrapper">
+    <div class="safety-zone-container">
+      <span class="safety-label top">1x — Margen Superior</span>
+      <span class="safety-label bottom">1x — Margen Inferior</span>
+      <span class="safety-label left">1x</span>
+      <span class="safety-label right">1x</span>
+      <div class="safety-zone-inner">
+        <img src="https://i.imgur.com/wnGnoCL.png"
+     alt="KODE44"
+     style="max-width:300px;height:auto;">
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size: 12px; color: rgba(255,255,255,0.3); text-align: center; margin-bottom: 80px;">La "x" equivale a la altura de la letra K mayúscula del wordmark en cualquier escala de reproducción.</p>
+
+  <!-- Usos Correctos / Incorrectos -->
+  <div class="section-label" style="color: #7b4c78;">Usos del Logotipo</div>
+  <h3 style="font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 32px;">Correcto e Incorrecto</h3>
+
+  <div class="usage-grid">
+    <div class="usage-item">
+      <div class="usage-badge badge-correct">✓ Correcto</div>
+      <div class="usage-logo-demo">
+        <div class="logo-inline">
+          <span style="font-size: 20px; color:#000000; font-weight: 700; letter-spacing: 0.05em;">KODE44</span>
+        </div>
+      </div>
+      <div class="usage-desc">Proporciones originales, colores oficiales, fondo limpio y zona de seguridad respetada.</div>
+    </div>
+    <div class="usage-item bad">
+      <div class="usage-badge badge-wrong">✗ Incorrecto</div>
+      <div class="usage-logo-demo" style="align-items: flex-end;">
+        <span class="logo-distorted">KODE44</span>
+      </div>
+      <div class="usage-desc">No distorsionar ni estirar el logotipo. Las proporciones originales deben mantenerse siempre.</div>
+    </div>
+    <div class="usage-item bad">
+      <div class="usage-badge badge-wrong">✗ Incorrecto</div>
+      <div class="usage-logo-demo">
+        <span class="logo-on-busy">KODE44</span>
+      </div>
+      <div class="usage-desc">No aplicar el logotipo sobre fondos que dificulten su visibilidad o generen bajo contraste.</div>
+    </div>
+    <div class="usage-item bad">
+      <div class="usage-badge badge-wrong">✗ Incorrecto</div>
+      <div class="usage-logo-demo" style="align-items: center;">
+        <span style="font-size: 22px; font-weight: 700; color: #cc44cc; letter-spacing: 0.05em;">KODE44</span>
+      </div>
+      <div class="usage-desc">No modificar los colores oficiales. El logotipo solo puede usarse en negro, blanco o sobre fondo púrpura.</div>
+    </div>
+    <div class="usage-item bad">
+      <div class="usage-badge badge-wrong">✗ Incorrecto</div>
+      <div class="usage-logo-demo" style="align-items: center;">
+        <span style="font-size: 22px; font-weight: 700; color: #000; text-shadow: 4px 4px 8px rgba(0,0,0,0.5), -2px -2px 6px rgba(100,50,100,0.8);">KODE44</span>
+      </div>
+      <div class="usage-desc">No aplicar sombras, brillos, degradados no autorizados ni efectos que alteren la legibilidad.</div>
+    </div>
+    <div class="usage-item bad">
+      <div class="usage-badge badge-correct">✓ Correcto</div>
+      <div class="usage-logo-demo" style="align-items: center;">
+        <span class="logo-no-space">KODE44</span>
+      </div>
+      <div class="usage-desc">Otros elementos no pueden aparecer dentro del margen de protección.</div>
+    </div>
+  </div>
+
+  <!-- Tamaños Mínimos -->
+  <div style="margin-top: 80px;">
+    <div class="section-label" style="color: #7b4c78;">Tamaños Mínimos</div>
+    <h3 style="font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 32px;">Límites de Reproducción</h3>
+    <table class="sizes-table">
+      <thead>
+        <tr>
+          <th>Formato</th>
+          <th>Tamaño Mínimo</th>
+          <th>Aplicación Recomendada</th>
+          <th>Muestra Visual</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Digital — Logotipo completo</td>
+          <td>120 px de ancho</td>
+          <td>Web, apps, redes sociales</td>
+          <td><span class="size-visual" style="width: 120px; height: 28px; font-size: 11px; font-weight: 700; letter-spacing: 0.05em;">KODE44</span></td>
+        </tr>
+        <tr>
+          <td>Digital — Isotipo</td>
+          <td>32 px × 32 px</td>
+          <td>Favicon, iconos de app, avatares</td>
+          <td>
+            <span class="size-visual" style="width: 32px; height: 32px; font-size: 9px; font-weight: 700; letter-spacing: 0;">K44</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Impresión — Logotipo completo</td>
+          <td>30 mm de ancho</td>
+          <td>Tarjetas, etiquetas, papelería</td>
+          <td><span class="size-visual" style="width: 90px; height: 24px; font-size: 10px; font-weight: 700; letter-spacing: 0.05em;">KODE44</span></td>
+        </tr>
+        <tr>
+          <td>Impresión — Isotipo</td>
+          <td>10 mm × 10 mm</td>
+          <td>Sellos, bordados pequeños, etiquetas internas</td>
+          <td>
+            <span class="size-visual" style="width: 30px; height: 30px; font-size: 8px; font-weight: 700;">K44</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size: 12px; color: rgba(255,255,255,0.3); margin-top: 16px;">Por debajo de estos tamaños mínimos, el logotipo pierde legibilidad. Usar isotipo o versión simplificada cuando el espacio disponible sea menor al mínimo establecido.</p>
+  </div>
+</section>
+
+<!-- ═══ 03 COLORES ═══ -->
+<section id="colores">
+  <div class="section-label">03</div>
+  <div class="section-number">03</div>
+  <div class="section-title">Paleta de<br>Colores</div>
+
+  <!-- Color strip -->
+  <div class="color-strip">
+    <div class="color-swatch" style="background:#000000;">
+      <div class="swatch-name" style="color:rgba(255,255,255,0.7);">Negro</div>
+      <div class="swatch-hex" style="color:rgba(255,255,255,0.4);">#000000</div>
+    </div>
+    <div class="color-swatch" style="background:#1a1a1a;">
+      <div class="swatch-name" style="color:rgba(255,255,255,0.5);">Negro Suave</div>
+      <div class="swatch-hex" style="color:rgba(255,255,255,0.3);">#1A1A1A</div>
+    </div>
+    <div class="color-swatch" style="background:#371434; border-right: 2px solid #fff;">
+      <div class="swatch-name" style="color:rgba(255,255,255,0.8);">Púrpura</div>
+      <div class="swatch-hex" style="color:rgba(255,255,255,0.5);">#371434</div>
+    </div>
+    <div class="color-swatch" style="background:#5a2257;">
+      <div class="swatch-name" style="color:rgba(255,255,255,0.6);">Púrpura Claro</div>
+      <div class="swatch-hex" style="color:rgba(255,255,255,0.4);">#5A2257</div>
+    </div>
+    <div class="color-swatch" style="background:#1f0b1e;">
+      <div class="swatch-name" style="color:rgba(255,255,255,0.5);">Púrpura Oscuro</div>
+      <div class="swatch-hex" style="color:rgba(255,255,255,0.3);">#1F0B1E</div>
+    </div>
+    <div class="color-swatch" style="background:#FFFFFF; border-left: 1px solid #e0e0e0;">
+      <div class="swatch-name" style="color:rgba(0,0,0,0.6);">Blanco</div>
+      <div class="swatch-hex" style="color:rgba(0,0,0,0.35);">#FFFFFF</div>
+    </div>
+  </div>
+
+  <!-- Color detail cards -->
+  <div class="color-detail-grid">
+    <div class="color-detail-card">
+      <div class="color-block"><div class="color-block-inner" style="background:#000000;"></div></div>
+      <div class="color-info">
+        <div class="color-name">Negro</div>
+        <div class="color-role">Color Primario — Dominante</div>
+        <p class="color-desc">Representa la exclusividad, la presencia y la fuerza de la marca. Aporta una sensación premium y sofisticada que define el carácter visual de KODE44.</p>
+        <div class="color-values">
+          <div class="color-value-row"><span class="color-value-label">HEX</span><span class="color-value-code">#000000</span></div>
+          <div class="color-value-row"><span class="color-value-label">RGB</span><span class="color-value-code">0, 0, 0</span></div>
+          <div class="color-value-row"><span class="color-value-label">CMYK</span><span class="color-value-code">0 / 0 / 0 / 100</span></div>
+          <div class="color-value-row"><span class="color-value-label">Pantone</span><span class="color-value-code">Black C</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="color-detail-card">
+      <div class="color-block"><div class="color-block-inner" style="background:#FFFFFF; border-bottom: 1px solid #e0e0e0;"></div></div>
+      <div class="color-info">
+        <div class="color-name">Blanco</div>
+        <div class="color-role">Color Primario — Equilibrio</div>
+        <p class="color-desc">Elemento de equilibrio visual que refuerza el minimalismo, la claridad y el espacio dentro de la identidad gráfica de KODE44.</p>
+        <div class="color-values">
+          <div class="color-value-row"><span class="color-value-label">HEX</span><span class="color-value-code">#FFFFFF</span></div>
+          <div class="color-value-row"><span class="color-value-label">RGB</span><span class="color-value-code">255, 255, 255</span></div>
+          <div class="color-value-row"><span class="color-value-label">CMYK</span><span class="color-value-code">0 / 0 / 0 / 0</span></div>
+          <div class="color-value-row"><span class="color-value-label">Pantone</span><span class="color-value-code">White</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="color-detail-card">
+      <div class="color-block"><div class="color-block-inner" style="background:#371434;"></div></div>
+      <div class="color-info">
+        <div class="color-name">Púrpura</div>
+        <div class="color-role">Color Primario — Distintivo</div>
+        <p class="color-desc">Simboliza la creatividad, el misterio y la elegancia. Agrega un carácter distintivo y una estética contemporánea que diferencia a KODE44.</p>
+        <div class="color-values">
+          <div class="color-value-row"><span class="color-value-label">HEX</span><span class="color-value-code">#371434</span></div>
+          <div class="color-value-row"><span class="color-value-label">RGB</span><span class="color-value-code">55, 20, 52</span></div>
+          <div class="color-value-row"><span class="color-value-label">CMYK</span><span class="color-value-code">0 / 64 / 5 / 78</span></div>
+          <div class="color-value-row"><span class="color-value-label">Pantone</span><span class="color-value-code">7659 C</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Secondary -->
+  <div class="section-label">Colores Secundarios</div>
+  <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 24px;">Variaciones y Complementos</h3>
+  <p style="max-width: 600px; margin-bottom: 32px;">Las variaciones secundarias se derivan de los colores principales y se usan para fondos, capas sutiles, estados hover y elementos de apoyo. Nunca reemplazan a los colores primarios como protagonistas.</p>
+
+  <div class="secondary-colors">
+    <div class="sec-swatch" style="background:#1a1a1a;">
+      <span class="swatch-name" style="color:rgba(255,255,255,0.6);">Negro Soft</span>
+      <span class="swatch-hex" style="color:rgba(255,255,255,0.35);">#1A1A1A</span>
+    </div>
+    <div class="sec-swatch" style="background:#2a2a2a;">
+      <span class="swatch-name" style="color:rgba(255,255,255,0.55);">Grafito</span>
+      <span class="swatch-hex" style="color:rgba(255,255,255,0.3);">#2A2A2A</span>
+    </div>
+    <div class="sec-swatch" style="background:#1f0b1e;">
+      <span class="swatch-name" style="color:rgba(255,255,255,0.6);">Abyss</span>
+      <span class="swatch-hex" style="color:rgba(255,255,255,0.35);">#1F0B1E</span>
+    </div>
+    <div class="sec-swatch" style="background:#5a2257;">
+      <span class="swatch-name" style="color:rgba(255,255,255,0.7);">Púrpura Suave</span>
+      <span class="swatch-hex" style="color:rgba(255,255,255,0.4);">#5A2257</span>
+    </div>
+    <div class="sec-swatch" style="background:#f5f5f5; border: 1px solid #e0e0e0;">
+      <span class="swatch-name" style="color:rgba(0,0,0,0.5);">Off-White</span>
+      <span class="swatch-hex" style="color:rgba(0,0,0,0.3);">#F5F5F5</span>
+    </div>
+    <div class="sec-swatch" style="background:#9a9a9a;">
+      <span class="swatch-name" style="color:rgba(255,255,255,0.8);">Gris Medio</span>
+      <span class="swatch-hex" style="color:rgba(255,255,255,0.5);">#9A9A9A</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 04 TIPOGRAFÍA ═══ -->
+<section id="tipografia" class="dark-section">
+  <div class="section-label">04</div>
+  <div class="section-number">04</div>
+  <div class="section-title">Sistema<br>Tipográfico</div>
+
+  <div class="type-specimen-grid">
+    <div class="type-card" style="background: var(--black);">
+      <div class="type-label" style="color: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.08);">Tipografía Principal</div>
+      <div class="type-display" style="font-family: 'Space Grotesk', sans-serif; color: var(--white);">Space<br>Grotesk</div>
+      <div class="type-alphabet" style="font-family: 'Space Grotesk', sans-serif; color: rgba(255,255,255,0.2);">
+        A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>
+        a b c d e f g h i j k l m n o p q r s t u v w x y z<br>
+        0 1 2 3 4 5 6 7 8 9 ! @ # & ( ) — . , :
+      </div>
+      <div class="type-meta">
+        <div class="type-meta-item">Tipo <span>Display / Headlines</span></div>
+        <div class="type-meta-item">Pesos <span>300–700</span></div>
+        <div class="type-meta-item">Uso <span>Títulos · UI · Logo</span></div>
+      </div>
+    </div>
+    <div class="type-card" style="background: var(--gray-800);">
+      <div class="type-label" style="color: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.08);">Tipografía Secundaria</div>
+      <div class="type-display" style="font-family: 'Space Grotesk', sans-serif; font-weight: 300; color: rgba(255,255,255,0.85); font-size: 48px;">Satoshi</div>
+      <div class="type-alphabet" style="font-family: 'Space Grotesk', sans-serif; font-weight: 300; color: rgba(255,255,255,0.2);">
+        A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>
+        a b c d e f g h i j k l m n o p q r s t u v w x y z<br>
+        0 1 2 3 4 5 6 7 8 9 ! @ # & ( ) — . , :
+      </div>
+      <div class="type-meta">
+        <div class="type-meta-item">Tipo <span>Body / Support</span></div>
+        <div class="type-meta-item">Pesos <span>300–700</span></div>
+        <div class="type-meta-item">Uso <span>Cuerpo · Captions</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hierarchy -->
+  <div class="section-label" style="color: #7b4c78;">Jerarquía Tipográfica</div>
+  <h3 style="font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 40px;">Organización Visual</h3>
+
+  <div class="hierarchy-row">
+    <div class="h-level">Título / H1</div>
+    <div class="h-sample"><span class="h-title-sample" style="color: var(--white);">Identidad Propia</span></div>
+    <div class="h-spec"><strong>Space Grotesk</strong><br>Bold 700 · 42–64px<br>Letter-spacing: −0.02em</div>
+  </div>
+  <div class="hierarchy-row">
+    <div class="h-level">Subtítulo / H2</div>
+    <div class="h-sample"><span class="h-subtitle-sample" style="color: rgba(255,255,255,0.8);">Diseño con Intención</span></div>
+    <div class="h-spec"><strong>Space Grotesk / Satoshi</strong><br>Medium 500 · 20–28px<br>Letter-spacing: −0.01em</div>
+  </div>
+  <div class="hierarchy-row">
+    <div class="h-level">Cuerpo de Texto</div>
+    <div class="h-sample"><span class="h-body-sample" style="color: rgba(255,255,255,0.45); max-width: 400px; display: block;">Cada prenda de KODE44 nace con el propósito de transmitir algo más que moda: una forma de ver el mundo.</span></div>
+    <div class="h-spec"><strong>Satoshi</strong><br>Regular 400 · 14–16px<br>Line-height: 1.65–1.75</div>
+  </div>
+  <div class="hierarchy-row">
+    <div class="h-level">Caption / Label</div>
+    <div class="h-sample"><span class="h-caption-sample" style="color: rgba(255,255,255,0.3);">Colección Primavera 2026 — Edición Limitada</span></div>
+    <div class="h-spec"><strong>Satoshi</strong><br>Light 300 · 10–12px<br>Letter-spacing: +0.1em</div>
+  </div>
+</section>
+
+<!-- ═══ 05 SISTEMA GRÁFICO ═══ -->
+<section id="sistema">
+  <div class="section-label">05</div>
+  <div class="section-number">05</div>
+  <div class="section-title">Sistema<br>Gráfico</div>
+
+  <p style="max-width: 640px; margin-bottom: 64px;">El sistema gráfico de KODE44 está diseñado para reforzar una identidad visual moderna, urbana y creativa. A través de elementos visuales consistentes, la marca construye un lenguaje propio que va más allá del logotipo.</p>
+
+  <div class="gs-grid">
+    <div class="gs-card">
+      <div class="gs-title">Formas & Composición</div>
+      <div class="geo-demo"><div class="geo-grid-pattern"></div></div>
+      <p style="font-size: 12px; margin-bottom: 0;">Composiciones limpias, estructuras geométricas y distribuciones equilibradas. Grid de 8px como unidad base. Asimetría controlada para generar tensión visual.</p>
+    </div>
+    <div class="gs-card">
+      <div class="gs-title">Elementos Lineales</div>
+      <div class="geo-demo"><div class="geo-lines"></div></div>
+      <p style="font-size: 12px; margin-bottom: 0;">Líneas, tramas y patrones angulares inspirados en la estética digital y contemporánea. Aportan dinamismo sin romper el minimalismo.</p>
+    </div>
+    <div class="gs-card">
+      <div class="gs-title">Patrón de Puntos</div>
+      <div class="geo-demo"><div class="geo-dots"></div></div>
+      <p style="font-size: 12px; margin-bottom: 0;">Recursos visuales rítmicos que conectan con la identidad urbana. Úsalos como fondos suaves o capas decorativas en piezas secundarias.</p>
+    </div>
+    <div class="gs-card dark">
+      <div class="gs-title">Textura — Noise</div>
+      <div class="geo-demo">
+        <div class="texture-noise"><div class="texture-grain"></div></div>
+      </div>
+      <p style="font-size: 12px; margin-bottom: 0; color: rgba(255,255,255,0.5);">Efectos de ruido y grain aplicados como overlay para agregar profundidad y textura a los fondos oscuros. Opacidad máxima: 15%.</p>
+    </div>
+    <div class="gs-card dark">
+      <div class="gs-title">Gradientes de Marca</div>
+      <div class="geo-demo"><div class="gradient-demo"></div></div>
+      <p style="font-size: 12px; margin-bottom: 0; color: rgba(255,255,255,0.5);">Transiciones de Negro a Púrpura (#371434) usadas en fondos de campaña y elementos de profundidad. Nunca aplicar sobre el logotipo.</p>
+    </div>
+    <div class="gs-card purple">
+      <div class="gs-title">Dirección Fotográfica</div>
+      <div class="geo-demo">
+        <div class="photo-style-demo">
+          <span class="photo-style-text">Urban · Raw · Authentic</span>
+        </div>
+      </div>
+      <p style="font-size: 12px; margin-bottom: 0; color: rgba(255,255,255,0.6);">Escenarios urbanos, contrastes marcados, composiciones asimétricas. Las imágenes deben transmitir autenticidad, expresión e identidad sin artificios.</p>
+    </div>
+  </div>
+
+  <div style="background: var(--black); padding: 40px; margin-top: 2px;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px;">
+      <div>
+        <div style="font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.3); font-weight: 600; margin-bottom: 12px;">Fotografía — Hacer</div>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li style="font-size: 12px; color: rgba(255,255,255,0.5); padding-left: 16px; border-left: 2px solid #371434;">Escenarios urbanos y callejeros</li>
+          <li style="font-size: 12px; color: rgba(255,255,255,0.5); padding-left: 16px; border-left: 2px solid #371434;">Alto contraste y tonos oscuros</li>
+          <li style="font-size: 12px; color: rgba(255,255,255,0.5); padding-left: 16px; border-left: 2px solid #371434;">Composiciones minimalistas</li>
+          <li style="font-size: 12px; color: rgba(255,255,255,0.5); padding-left: 16px; border-left: 2px solid #371434;">Expresión auténtica, sin poses forzadas</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.3); font-weight: 600; margin-bottom: 12px;">Fotografía — Evitar</div>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <li style="font-size: 12px; color: rgba(255,255,255,0.35); padding-left: 16px; border-left: 2px solid #2a2a2a;">Filtros saturados o coloridos</li>
+          <li style="font-size: 12px; color: rgba(255,255,255,0.35); padding-left: 16px; border-left: 2px solid #2a2a2a;">Fondos blancos de estudio sin contexto</li>
+          <li style="font-size: 12px; color: rgba(255,255,255,0.35); padding-left: 16px; border-left: 2px solid #2a2a2a;">Estética genérica de influencer</li>
+          <li style="font-size: 12px; color: rgba(255,255,255,0.35); padding-left: 16px; border-left: 2px solid #2a2a2a;">Sobreexposición excesiva</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.3); font-weight: 600; margin-bottom: 12px;">Dirección Artística</div>
+        <p style="font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.65; margin: 0;">Equilibrio entre minimalismo, exclusividad y creatividad. Estética contemporánea y coherente en todos los puntos de contacto. La imagen debe contar una historia, no solo mostrar una prenda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 06 APLICACIONES ═══ -->
+<section id="aplicaciones" class="dark-section">
+  <div class="section-label">06</div>
+  <div class="section-number">06</div>
+  <div class="section-title">Aplicaciones<br>de Marca</div>
+
+  <p style="max-width: 640px; margin-bottom: 64px;">Las aplicaciones de marca permiten visualizar cómo la identidad de KODE44 se adapta de manera consistente a diferentes formatos y puntos de contacto, garantizando reconocimiento y coherencia visual.</p>
+
+  <div class="apps-grid">
+    <!-- Social -->
+    <div class="app-card" style="background: var(--gray-800);">
+      <div class="app-visual">
+        <div class="social-mockup">
+          <div class="social-header">
+            <div class="social-avatar">K</div>
+            <span class="social-handle">@44mvmt</span>
+          </div>
+          <div class="social-post">
+            <span class="social-post-text">KODE44</span>
+          </div>
+          <div class="social-caption">No seguimos tendencias. Construimos identidad. — @44mvmt</div>
+        </div>
+      </div>
+      <div class="app-info" style="background: var(--gray-800);">
+        <div class="app-name" style="color: var(--white);">Redes Sociales</div>
+        <p class="app-desc" style="color: rgba(255,255,255,0.4);">Publicaciones, historias y contenido promocional con estética limpia y moderna. Handle oficial: @44mvmt.</p>
+      </div>
+    </div>
+
+    <!-- Garment -->
+    <div class="app-card" style="background: var(--gray-800);">
+      <div class="app-visual">
+        <div class="garment-mockup">
+          <div style="width: 120px; height: 110px; position: relative;">
+            <svg viewBox="0 0 120 110" fill="none" style="width:100%; height:100%;">
+              <!-- hoodie shape -->
+              <path d="M30 20 L20 30 L10 50 L20 55 L20 100 L100 100 L100 55 L110 50 L100 30 L90 20 L75 15 C75 15 70 25 60 25 C50 25 45 15 45 15 Z" fill="#1a1a1a" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+              <path d="M45 15 C45 15 50 25 60 25 C70 25 75 15 75 15 L80 12 L60 8 L40 12 Z" fill="#2a2a2a" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            </svg>
+            <div class="hoodie-logo">KODE44</div>
+          </div>
+        </div>
+      </div>
+      <div class="app-info" style="background: var(--gray-800);">
+        <div class="app-name" style="color: var(--white);">Prendas & Merch</div>
+        <p class="app-desc" style="color: rgba(255,255,255,0.4);">Logotipo, isotipo y elementos gráficos aplicados en hoodies, joggers, camisetas y etiquetas de marca.</p>
+      </div>
+    </div>
+
+    <!-- Packaging -->
+    <div class="app-card" style="background: var(--gray-800);">
+      <div class="app-visual">
+        <div class="packaging-mockup">
+          <div class="box-3d">
+            <div class="box-lid"></div>
+            <span class="box-text">KODE44</span>
+            <span class="box-text" style="font-size:6px; opacity:0.4;">@44mvmt</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="width: 48px; height: 32px; background: var(--gray-800); border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center;">
+              <span style="font-size: 7px; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 0.1em;">K44</span>
+            </div>
+            <div style="width: 48px; height: 12px; background: var(--purple); opacity: 0.7;"></div>
+            <div style="width: 48px; height: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.06);"></div>
+          </div>
+        </div>
+      </div>
+      <div class="app-info" style="background: var(--gray-800);">
+        <div class="app-name" style="color: var(--white);">Packaging</div>
+        <p class="app-desc" style="color: rgba(255,255,255,0.4);">Cajas, bolsas, stickers y materiales de envío. Cada empaque forma parte de la experiencia de marca.</p>
+      </div>
+    </div>
+
+    <!-- Web -->
+    <div class="app-card" style="background: var(--gray-800);">
+      <div class="app-visual">
+        <div class="web-mockup">
+          <div class="web-nav">
+            <span class="web-nav-logo">KODE44</span>
+            <div class="web-nav-items">
+              <span class="web-nav-item">SHOP</span>
+              <span class="web-nav-item">DROP</span>
+              <span class="web-nav-item">ABOUT</span>
+            </div>
+          </div>
+          <div class="web-hero">
+            <span class="web-hero-text">NEW DROP</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px;">
+            <div style="height: 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.04);"></div>
+            <div style="height: 28px; background: rgba(55,20,52,0.3); border: 1px solid rgba(255,255,255,0.04);"></div>
+            <div style="height: 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.04);"></div>
+          </div>
+        </div>
+      </div>
+      <div class="app-info" style="background: var(--gray-800);">
+        <div class="app-name" style="color: var(--white);">Sitio Web</div>
+        <p class="app-desc" style="color: rgba(255,255,255,0.4);">Adaptación visual y tipográfica al entorno digital. Navegación coherente con la identidad de KODE44.</p>
+      </div>
+    </div>
+
+    <!-- Promo -->
+    <div class="app-card" style="background: var(--gray-800);">
+      <div class="app-visual">
+        <div class="promo-mockup">
+          <div class="promo-tag">Nueva Colección — 2026</div>
+          <div class="promo-headline">Cada pieza<br>una identidad.</div>
+          <div class="promo-cta">Ver Colección →</div>
+        </div>
+      </div>
+      <div class="app-info" style="background: var(--gray-800);">
+        <div class="app-name" style="color: var(--white);">Material Promocional</div>
+        <p class="app-desc" style="color: rgba(255,255,255,0.4);">Banners, campañas digitales, piezas publicitarias y material para eventos y lanzamientos.</p>
+      </div>
+    </div>
+
+    <!-- Corporate -->
+    <div class="app-card" style="background: var(--gray-800);">
+      <div class="app-visual" style="padding: 20px;">
+        <div class="corp-mockup">
+          <div class="corp-header">
+            <span class="corp-logo-text">KODE44</span>
+            <div class="corp-footer-dot"></div>
+          </div>
+          <div class="corp-lines">
+            <div class="corp-line"></div>
+            <div class="corp-line"></div>
+            <div class="corp-line"></div>
+            <div class="corp-line"></div>
+            <div class="corp-line"></div>
+          </div>
+          <div class="corp-footer">
+            <span class="corp-footer-text">being yourself is the kode</span>
+            <span class="corp-footer-text">@44mvmt</span>
+          </div>
+        </div>
+      </div>
+      <div class="app-info" style="background: var(--gray-800);">
+        <div class="app-name" style="color: var(--white);">Papelería Corporativa</div>
+        <p class="app-desc" style="color: rgba(255,255,255,0.4);">Documentos, presentaciones y firmas de correo con identidad visual consistente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 07 COMUNICACIÓN ═══ -->
+<section id="comunicacion" class="purple-section">
+  <div class="section-label">07</div>
+  <div class="section-number">07</div>
+  <div class="section-title">Voz &<br>Comunicación</div>
+
+  <p style="max-width: 600px; margin-bottom: 64px;">La comunicación de KODE44 es directa, auténtica y contemporánea. Lenguaje claro y seguro que transmite creatividad, exclusividad y personalidad sin recurrir a exageraciones. La voz busca inspirar la expresión individual.</p>
+
+  <!-- Slogan -->
+  <div class="slogan-display">
+    <div class="slogan-bg"></div>
+    <div class="slogan-text"><span class="slogan-em">"</span>being yourself <span class="slogan-em">is the</span> kode<span class="slogan-em">"</span></div>
+    <div class="slogan-sub">Slogan Oficial — KODE44</div>
+  </div>
+
+  <!-- Copywriting examples -->
+  <div class="section-label" style="margin-top: 64px; color: rgba(255,255,255,0.4);">Ejemplos de Copywriting</div>
+  <h3 style="font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 32px;">Mensajes de Marca</h3>
+
+  <div class="copy-examples">
+    <div class="copy-card">
+      <div class="copy-context">Lanzamiento de Producto</div>
+      <div class="copy-text">"Cada pieza, una identidad."</div>
+      <div class="copy-accent">44</div>
+    </div>
+    <div class="copy-card">
+      <div class="copy-context">Promoción de Colección</div>
+      <div class="copy-text">"Diseñado para quienes entienden que vestir es una forma de expresarse."</div>
+      <div class="copy-accent">K</div>
+    </div>
+    <div class="copy-card">
+      <div class="copy-context">Publicación de Marca</div>
+      <div class="copy-text">"No seguimos tendencias, construimos identidad."</div>
+      <div class="copy-accent">44</div>
+    </div>
+    <div class="copy-card">
+      <div class="copy-context">Mensaje Institucional</div>
+      <div class="copy-text">"KODE44 nace de la creatividad, el diseño y la necesidad de expresar algo propio."</div>
+      <div class="copy-accent">K</div>
+    </div>
+  </div>
+
+  <!-- Frases Clave -->
+  <div class="section-label" style="color: rgba(255,255,255,0.4);">Frases Clave</div>
+  <h3 style="font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 32px;">Brand Phrases</h3>
+
+  <div class="phrases-grid">
+    <div class="phrase-card" style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06);">
+      <div class="phrase-num" style="color: rgba(255,255,255,0.06);">01</div>
+      <div class="phrase-text" style="color: var(--white);">Menos ruido.<br>Más identidad.</div>
+    </div>
+    <div class="phrase-card" style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06);">
+      <div class="phrase-num" style="color: rgba(255,255,255,0.06);">02</div>
+      <div class="phrase-text" style="color: var(--white);">Diseñado para destacar.</div>
+    </div>
+    <div class="phrase-card" style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06);">
+      <div class="phrase-num" style="color: rgba(255,255,255,0.06);">03</div>
+      <div class="phrase-text" style="color: var(--white);">Expresa quién eres.</div>
+    </div>
+    <div class="phrase-card" style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06);">
+      <div class="phrase-num" style="color: rgba(255,255,255,0.06);">04</div>
+      <div class="phrase-text" style="color: var(--white);">Identidad en cada pieza.</div>
+    </div>
+    <div class="phrase-card" style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06);">
+      <div class="phrase-num" style="color: rgba(255,255,255,0.06);">05</div>
+      <div class="phrase-text" style="color: var(--white);">Diseñado con intención.</div>
+    </div>
+    <div class="phrase-card" style="background: rgba(55,20,52,0.5); border: 1px solid rgba(255,255,255,0.1);">
+      <div class="phrase-num" style="color: rgba(255,255,255,0.08);">06</div>
+      <div class="phrase-text" style="color: rgba(255,255,255,0.9);">being yourself is the kode.</div>
+    </div>
+  </div>
+
+  <!-- Tono de Comunicación -->
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(0,0,0,0.2); margin-top: 48px;">
+    <div style="background: rgba(0,0,0,0.3); padding: 32px;">
+      <div style="font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.3); font-weight: 600; margin-bottom: 16px;">La marca ES</div>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+        <li style="font-size: 13px; color: rgba(255,255,255,0.7); padding-left: 16px; border-left: 2px solid rgba(255,255,255,0.3);">Directa y concisa</li>
+        <li style="font-size: 13px; color: rgba(255,255,255,0.7); padding-left: 16px; border-left: 2px solid rgba(255,255,255,0.3);">Auténtica y sin artificios</li>
+        <li style="font-size: 13px; color: rgba(255,255,255,0.7); padding-left: 16px; border-left: 2px solid rgba(255,255,255,0.3);">Segura de su identidad</li>
+        <li style="font-size: 13px; color: rgba(255,255,255,0.7); padding-left: 16px; border-left: 2px solid rgba(255,255,255,0.3);">Contemporánea y relevante</li>
+        <li style="font-size: 13px; color: rgba(255,255,255,0.7); padding-left: 16px; border-left: 2px solid rgba(255,255,255,0.3);">Inspiradora sin ser condescendiente</li>
+      </ul>
+    </div>
+    <div style="background: rgba(0,0,0,0.15); padding: 32px;">
+      <div style="font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.2); font-weight: 600; margin-bottom: 16px;">La marca NO ES</div>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+        <li style="font-size: 13px; color: rgba(255,255,255,0.4); padding-left: 16px; border-left: 2px solid rgba(255,255,255,0.1); text-decoration: line-through;">Agresiva o vulgar</li>
+        <li style="font-size: 13px; color: rgba(255,255,255,0.4); padding-left: 16px; border-left: 2px solid rgba(255,255,255,0.1); text-decoration: line-through;">Exagerada o grandilocuente</li>
+        <li style="font-size: 13px; color: rgba(255,255,255,0.4); padding-left: 16px; border-left: 2px solid rgba(255,255,255,0.1); text-decoration: line-through;">Genérica o masificada</li>
+        <li style="font-size: 13px; color: rgba(255,255,255,0.4); padding-left: 16px; border-left: 2px solid rgba(255,255,255,0.1); text-decoration: line-through;">Infantil o superficial</li>
+        <li style="font-size: 13px; color: rgba(255,255,255,0.4); padding-left: 16px; border-left: 2px solid rgba(255,255,255,0.1); text-decoration: line-through;">Seguidora de tendencias vacías</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 08 REGLAS FINALES ═══ -->
+<section id="reglas">
+  <div class="section-label">08</div>
+  <div class="section-number">08</div>
+  <div class="section-title">Reglas<br>Finales</div>
+
+  <div class="two-col" style="margin-bottom: 80px;">
+    <div>
+      <div class="section-label">Qué NO Hacer</div>
+      <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 8px;">Usos Prohibidos</h3>
+      <p>Para preservar la integridad y el reconocimiento de KODE44, se deben evitar estrictamente las siguientes prácticas en todos los canales y aplicaciones de la marca.</p>
+    </div>
+    <div>
+      <div class="section-label">Buenas Prácticas</div>
+      <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 8px;">Lineamientos Clave</h3>
+      <p>La identidad visual de KODE44 debe mantenerse uniforme en todos los canales. El uso correcto garantiza una experiencia coherente y fortalece el reconocimiento de marca.</p>
+    </div>
+  </div>
+
+  <div class="dont-grid">
+    <div class="dont-item">
+      <div class="dont-icon">✗</div>
+      <div class="dont-text"><strong>Proporciones</strong>No alterar ni distorsionar las proporciones del logotipo bajo ninguna circunstancia.</div>
+    </div>
+    <div class="dont-item">
+      <div class="dont-icon">✗</div>
+      <div class="dont-text"><strong>Colores</strong>No modificar los colores oficiales de la marca ni aplicar combinaciones no autorizadas.</div>
+    </div>
+    <div class="dont-item">
+      <div class="dont-icon">✗</div>
+      <div class="dont-text"><strong>Efectos Visuales</strong>No aplicar sombras excesivas, distorsiones, brillos o degradados no establecidos en el manual.</div>
+    </div>
+    <div class="dont-item">
+      <div class="dont-icon">✗</div>
+      <div class="dont-text"><strong>Tipografías</strong>No usar tipografías diferentes a Space Grotesk y Satoshi en materiales oficiales de la marca.</div>
+    </div>
+    <div class="dont-item">
+      <div class="dont-icon">✗</div>
+      <div class="dont-text"><strong>Fondos</strong>No colocar el logotipo sobre fondos que dificulten su visibilidad, legibilidad o reconocimiento.</div>
+    </div>
+    <div class="dont-item">
+      <div class="dont-icon">✗</div>
+      <div class="dont-text"><strong>Zona de Seguridad</strong>No invadir el espacio de protección establecido alrededor del logotipo con ningún elemento.</div>
+    </div>
+    <div class="dont-item">
+      <div class="dont-icon">✗</div>
+      <div class="dont-text"><strong>Baja Resolución</strong>No utilizar versiones pixeladas o de baja calidad de los elementos gráficos en ningún formato.</div>
+    </div>
+    <div class="dont-item">
+      <div class="dont-icon">✗</div>
+      <div class="dont-text"><strong>Reinterpretaciones</strong>No crear versiones alternativas, ilustradas o modificadas del logotipo sin autorización.</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 64px;">
+    <div class="section-label">Buenas Prácticas</div>
+    <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 32px;">Lineamientos de Consistencia</h3>
+  </div>
+
+  <div class="do-grid">
+    <div class="do-item">
+      <div class="do-icon">✓</div>
+      <div class="do-text"><strong>Versiones Oficiales</strong>Utilizar siempre las versiones oficiales del logotipo en los formatos y colores establecidos.</div>
+    </div>
+    <div class="do-item">
+      <div class="do-icon">✓</div>
+      <div class="do-text"><strong>Paleta de Colores</strong>Respetar la paleta definida en el manual. Negro, Blanco y Púrpura (#371434) son los pilares.</div>
+    </div>
+    <div class="do-item">
+      <div class="do-icon">✓</div>
+      <div class="do-text"><strong>Jerarquía Tipográfica</strong>Mantener una jerarquía tipográfica clara usando Space Grotesk y Satoshi de forma coherente.</div>
+    </div>
+    <div class="do-item">
+      <div class="do-icon">✓</div>
+      <div class="do-text"><strong>Composición Limpia</strong>Priorizar composiciones equilibradas, espacios generosos y distribuciones visuales ordenadas.</div>
+    </div>
+    <div class="do-item">
+      <div class="do-icon">✓</div>
+      <div class="do-text"><strong>Legibilidad</strong>Garantizar la legibilidad del logotipo y los textos en todos los formatos y tamaños de reproducción.</div>
+    </div>
+    <div class="do-item">
+      <div class="do-icon">✓</div>
+      <div class="do-text"><strong>Coherencia Gráfica</strong>Aplicar los elementos gráficos del sistema de forma consistente en cada punto de contacto.</div>
+    </div>
+    <div class="do-item">
+      <div class="do-icon">✓</div>
+      <div class="do-text"><strong>Dirección Visual</strong>Mantener la dirección artística alineada con la personalidad urbana, minimalista y auténtica de la marca.</div>
+    </div>
+    <div class="do-item">
+      <div class="do-icon">✓</div>
+      <div class="do-text"><strong>Revisión Previa</strong>Revisar cada aplicación antes de su publicación para asegurar el cumplimiento de los lineamientos.</div>
+    </div>
+  </div>
+
+  <!-- Consistency Statement -->
+  <div style="background: var(--black); padding: 56px; margin-top: 64px; text-align: center; position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 50% 50%, #371434 0%, transparent 65%); opacity: 0.5;"></div>
+    <div style="position: relative; z-index: 2;">
+      <div style="font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 24px; font-weight: 600;">Declaración de Consistencia</div>
+      <p style="font-size: clamp(16px, 2vw, 22px); color: rgba(255,255,255,0.8); max-width: 700px; margin: 0 auto; line-height: 1.6; font-weight: 500; letter-spacing: -0.01em;">Cada pieza visual debe reflejar los valores de creatividad, exclusividad, minimalismo y autenticidad que caracterizan a KODE44.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CIERRE ═══ -->
+<section class="closing-section">
+  <div class="closing-bg"></div>
+  <div class="closing-content">
+    <div class="closing-line"></div>
+    <div style="display: flex; align-items: center; gap: 24px; justify-content: center; margin-bottom: 16px;">
+      <div class="closing-logo">KODE44</div>
+    </div>
+    <div class="closing-tagline">being yourself is the kode</div>
+    <div class="closing-line"></div>
+    <div style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.15); margin-top: 8px;">Manual de Marca — Edición 01 — 2025/2026</div>
+  </div>
+</section>
+
+</body>
+</html>
